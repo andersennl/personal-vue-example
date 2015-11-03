@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+  <div class="container">
+    <div id="app">
+
+    <div class="row">
+      <div class="col-xs-6">
+        <a v-link="{ path: '/one' }">One</a> |
+        <a v-link="{ path: '/two' }">Two</a>
+      </div>
+
+      <div class="col-xs-6">
+      <router-view></router-view>
+      </div>
+    </div>
+
+      <p>{{completed}}/{{all}} tasks completed. {{active}} left.</p>
+      <p><input placeholder="New task" v-model="newTitle" v-on:keyup.enter="addTodo"></p>
+      <p>
+        <li v-for="todo in todos">
+        {{ todo.title }} <a v-on:click="removeTodo(todo)">x</a>
+        <input v-model="todo.completed" type="checkbox">
+        </li>
+      </p>
+    </div>
+  </div>
+
+  <script src="node_modules/vue/dist/vue.js"> </script>
+  <script src="node_modules/vue-resource/dist/vue-resource.js"> </script>
+  <script src="node_modules/vue-router/dist/vue-router.js"> </script>
+  <script src="node_modules/jquery/dist/jquery.js"> </script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.js"> </script>
+  <script src="myjs.js"> </script>
+</body>
+</html>
